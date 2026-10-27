@@ -29,7 +29,7 @@ header{position:sticky;top:0;z-index:20;background:var(--slate);color:#fff;paddi
 .nav{display:flex;align-items:center;justify-content:space-between;min-height:68px;gap:16px}
 .logo{font-weight:600;letter-spacing:.08em;text-decoration:none;display:flex;gap:10px;align-items:center}
 .logo b{display:grid;place-items:center;width:34px;height:34px;background:var(--gold);color:#1a1405;border-radius:4px;font-family:var(--serif);font-size:1.2rem}
-nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0;font-size:.92rem}
+nav ul{display:flex;gap:clamp(8px,1.4vw,16px);list-style:none;margin:0;padding:0;font-size:.88rem}
 nav a{text-decoration:none;padding:8px 0}nav a:hover{color:var(--gold)}
 #menuBtn{display:none;background:none;border:1px solid #fff6;color:#fff;border-radius:4px;padding:10px 14px;font:600 .9rem var(--sans);min-height:44px}
 @media(max-width:860px){#menuBtn{display:block}nav{position:absolute;left:0;right:0;top:100%;background:var(--slate);display:none;padding:8px 20px 18px}nav.open{display:block}nav ul{flex-direction:column;gap:0}nav a{display:block;padding:14px 0;border-bottom:1px solid #fff2}.nav>.btn{display:none}}
@@ -59,9 +59,17 @@ input,select,textarea{width:100%;font:1rem var(--sans);padding:11px 12px;border:
 .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px}
 .card{background:#fff;border:1px solid var(--line);border-radius:8px;overflow:hidden}
 .card .ph{aspect-ratio:3/2;border-radius:0}.card .in{padding:16px}
+.gallery{background:#eef0ec}
+.gallery-main{aspect-ratio:3/2;background:var(--slate);display:grid;place-items:center}
+.gallery-main img{width:100%;height:100%;object-fit:cover}
+.gallery-thumbs{display:flex;gap:8px;overflow-x:auto;padding:10px 12px}
+.gallery-thumb{flex:none;width:72px;height:56px;padding:2px;border:2px solid transparent;border-radius:4px;background:#fff;cursor:pointer}
+.gallery-thumb img{display:block;width:100%;height:100%;object-fit:cover}
+.gallery-thumb[aria-pressed="true"]{border-color:var(--gold-d)}
+.countdown{margin:10px 0;color:var(--slate);font-size:.9rem;font-weight:600}
 .badge{display:inline-block;border:1.5px solid var(--slate);border-radius:99px;padding:2px 10px;font-size:.78rem;font-weight:600}
 .note{font-size:.82rem;color:var(--mute);margin-top:14px}
-.strip{display:grid;grid-template-columns:repeat(3,1fr);height:150px}.strip .ph{border-radius:0}
+
 .svc{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:26px}
 .svc article{border:1px solid var(--line);border-radius:8px;padding:22px;background:var(--paper)}
 .svc p{color:var(--mute);font-size:.94rem}.svc a{color:var(--gold-d);font-weight:600;font-size:.9rem}
@@ -86,6 +94,31 @@ input,select,textarea{width:100%;font:1rem var(--sans);padding:11px 12px;border:
 @media(max-width:860px){.team{grid-template-columns:1fr}}
 .case{display:grid;grid-template-columns:.8fr 1.2fr;gap:40px}
 .case aside{background:#ece5d3;border:1px solid #d6c9a4;border-radius:8px;padding:24px}
+
+.reach-section{background:var(--paper)}
+.reach-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(220px,.8fr);gap:28px;align-items:center;margin-top:24px}
+.map-figure{margin:0;padding:14px;background:#fff;border:1px solid var(--line);border-radius:10px}
+.map-figure svg{display:block;width:100%;height:auto;max-height:560px}
+.map-outline{fill:#e7ebe7;stroke:var(--slate);stroke-width:3;stroke-linejoin:round}
+.map-marker circle{fill:var(--gold);stroke:var(--slate);stroke-width:3}
+.map-marker text{font:600 13px var(--sans);fill:var(--slate)}
+.map-figure figcaption{font-size:.8rem;color:var(--mute);padding:8px 4px 0}
+.map-legend{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px 16px;padding:0;margin:12px 0 0}
+.map-legend li{display:flex;align-items:center;gap:9px;font-size:.92rem}
+.map-dot{width:13px;height:13px;flex:none;border:2px solid var(--slate);border-radius:50%;background:var(--gold)}
+@media(max-width:800px){.reach-grid{grid-template-columns:1fr}.map-figure svg{max-height:480px}}
+.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:24px}
+.faq-group h3{margin-bottom:12px}
+.faq-item{background:#fff;border:1px solid var(--line);border-radius:7px;margin-bottom:10px}
+.faq-item summary{position:relative;cursor:pointer;list-style:none;padding:16px 46px 16px 16px;font-weight:600;line-height:1.45}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:"+";position:absolute;right:16px;top:50%;transform:translateY(-50%);font-size:1.3rem;color:var(--gold-d)}
+.faq-item[open] summary::after{content:"-"}
+.faq-item p{margin:0;padding:0 16px 16px;color:var(--mute);font-size:.94rem}
+@media(max-width:760px){.faq-grid{grid-template-columns:1fr}}
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease}
+.reveal.is-visible{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal,.reveal.is-visible{opacity:1;transform:none;transition:none}}
 .chips{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:16px 0 0}.chips li{background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:7px 14px;font-size:.88rem}
 @media(max-width:860px){.case{grid-template-columns:1fr}}
 form .row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
@@ -105,10 +138,10 @@ footer a{text-decoration:none}footer a:hover{color:var(--gold)}
 <body>
 <a class="sr" href="#main">Skip to main content</a>
 <header><div class="wrap nav">
-<a class="logo" href="#top" aria-label="Ndila Auctioneers home"><b>N</b><span>NDILA<br><small style="font-weight:500;letter-spacing:.14em">AUCTIONEERS</small></span></a>
+<!-- LOGO PLACEHOLDER: replace the N monogram with owner-approved logo artwork. --><a class="logo" href="#top" aria-label="Ndila Auctioneers home; logo artwork placeholder"><b aria-hidden="true">N</b><span>NDILA<br><small style="font-weight:500;letter-spacing:.14em">AUCTIONEERS</small></span></a>
 <button id="menuBtn" aria-expanded="false" aria-controls="nav">Menu</button>
 <nav id="nav" aria-label="Main"><ul>
-<li><a href="#auctions">Auctions</a></li><li><a href="#sell">Sell with us</a></li><li><a href="#services">Services</a></li><li><a href="#about">About</a></li><li><a href="#team">Our team</a></li><li><a href="#marketing">Marketing</a></li></ul></nav>
+<li><a href="#auctions">Auctions</a></li><li><a href="#sell">Sell with us</a></li><li><a href="#services">Services</a></li><li><a href="#about">About</a></li><li><a href="#team">Our team</a></li><li><a href="#marketing">Marketing</a></li><li><a href="#faq">FAQs</a></li></ul></nav>
 <a class="btn" href="#contact">Contact</a>
 </div></header>
 
@@ -130,7 +163,7 @@ footer a{text-decoration:none}footer a:hover{color:var(--gold)}
 <section class="trust" aria-label="Company facts"><div class="wrap">
 <div><strong>Founded in 2019</strong><span>Nationwide auction and property trading</span></div>
 <div><strong>Majority Black female shareholding</strong><span>Empowering enterprise</span></div>
-<div><strong>Gauteng · Cape Town · KZN · Bloemfontein</strong><span>Associations and service across South Africa</span></div>
+<div><strong>Associations and support</strong><span>Gauteng · Cape Town · KwaZulu-Natal · Bloemfontein · North West · Kimberley</span></div>
 </div></section>
 
 <section class="paper" id="auctions"><div class="wrap">
@@ -146,8 +179,6 @@ footer a{text-decoration:none}footer a:hover{color:var(--gold)}
 <div id="results" aria-live="polite"></div>
 <p class="note">All auction times are shown in South African Standard Time (SAST). Amounts, where shown, are in South African rand (ZAR). Contact Ndila directly for current listings and terms.</p>
 </div></section>
-
-<div class="strip" aria-hidden="true"><div class="ph">Photo placeholder: industrial asset</div><div class="ph">Photo placeholder: auction floor</div><div class="ph">Photo placeholder: vehicles</div></div>
 
 <section id="services"><div class="wrap">
 <p class="eyebrow">Services</p><h2>Auction and asset support</h2>
@@ -174,8 +205,37 @@ footer a{text-decoration:none}footer a:hover{color:var(--gold)}
 <h3>Mission</h3><p>To service the market through asset optimisation and professional consultancy services.</p></div>
 <div><h3>Values</h3><ul class="pills"><li>Integrity</li><li>Honesty</li><li>Service excellence</li><li>Professionalism</li><li>Transparency</li></ul>
 <h3>Client sectors</h3><p>Financial institutions and banks · Liquidators and trustees · Insolvency practitioners · Business rescue practitioners · Government departments · Corporate sellers · Attorneys · Agricultural co-operatives · Executors · Private sellers · Individuals and private investors</p>
-<h3>Nationwide reach</h3><p>Ndila can assist clients nationwide, with associations or support in Gauteng, Cape Town, KwaZulu-Natal, Bloemfontein, North West and Kimberley.</p></div>
+<h3>Nationwide reach</h3><p>Ndila can assist clients nationwide, with associations or support in Gauteng, Cape Town, KwaZulu-Natal, Bloemfontein, North West and Kimberley. <a href="#reach">See the areas on the map</a>.</p></div>
 </div></section>
+
+<section class="reach-section" id="reach"><div class="wrap">
+<p class="eyebrow">Associations and support</p><h2>Connected across South Africa</h2>
+<p>The company profile names associations in these six areas. This schematic is a guide to those areas, not a map of branch offices.</p>
+<div class="reach-grid">
+<figure class="map-figure">
+<svg viewBox="0 0 500 560" role="img" aria-labelledby="sa-map-title sa-map-desc">
+<title id="sa-map-title">Schematic map of Ndila's association and support areas</title>
+<desc id="sa-map-desc">A simplified outline of South Africa with labelled markers for North West, Gauteng, Kimberley, Bloemfontein, KwaZulu-Natal and Cape Town. The markers are illustrative and do not indicate offices.</desc>
+<path class="map-outline" d="M74 130 L83 109 L112 96 L120 78 L160 68 L192 51 L239 57 L263 43 L306 53 L336 70 L363 76 L382 94 L399 119 L408 148 L429 171 L444 200 L434 228 L448 250 L441 273 L455 296 L442 319 L423 331 L432 353 L416 380 L397 409 L376 438 L354 463 L329 482 L306 489 L286 483 L270 463 L255 447 L239 434 L222 426 L205 418 L189 412 L174 405 L160 399 L148 405 L138 422 L130 445 L119 433 L108 417 L96 399 L87 379 L78 356 L69 328 L62 300 L57 275 L56 249 L60 224 L66 201 L70 176 L62 156 L68 139 Z"></path>
+<g class="map-marker"><circle cx="260" cy="149" r="7"></circle><text x="169" y="143">North West</text></g>
+<g class="map-marker"><circle cx="309" cy="177" r="7"></circle><text x="320" y="182">Gauteng</text></g>
+<g class="map-marker"><circle cx="230" cy="276" r="7"></circle><text x="144" y="270">Kimberley</text></g>
+<g class="map-marker"><circle cx="274" cy="303" r="7"></circle><text x="285" y="309">Bloemfontein</text></g>
+<g class="map-marker"><circle cx="372" cy="277" r="7"></circle><text x="281" y="253">KwaZulu-Natal</text></g>
+<g class="map-marker"><circle cx="131" cy="445" r="7"></circle><text x="58" y="477">Cape Town</text></g>
+</svg>
+<figcaption>Markers are approximate area indicators for associations or support. They do not confirm branch offices.</figcaption>
+</figure>
+<div class="map-side"><h3>Areas named in the profile</h3>
+<ul class="map-legend">
+<li><span class="map-dot" aria-hidden="true"></span><span>Gauteng</span></li>
+<li><span class="map-dot" aria-hidden="true"></span><span>Cape Town</span></li>
+<li><span class="map-dot" aria-hidden="true"></span><span>KwaZulu-Natal</span></li>
+<li><span class="map-dot" aria-hidden="true"></span><span>Bloemfontein</span></li>
+<li><span class="map-dot" aria-hidden="true"></span><span>North West</span></li>
+<li><span class="map-dot" aria-hidden="true"></span><span>Kimberley</span></li>
+</ul></div>
+</div></div></section>
 
 <section id="team"><div class="wrap">
 <p class="eyebrow">Our team</p><h2>Meet the people behind Ndila</h2>
@@ -204,11 +264,27 @@ footer a{text-decoration:none}footer a:hover{color:var(--gold)}
 <ul class="chips"><li>Instagram</li><li>Facebook</li><li>X</li><li>Bidders Choice website</li><li>SAIA</li><li>Google Ads</li><li>Email banners</li><li>Bidders Choice mailers</li><li>Corex boards in Madibeng</li></ul></div>
 </div></section>
 
+<section class="paper" id="faq"><div class="wrap">
+<p class="eyebrow">Helpful information</p><h2>Buyer and seller questions</h2>
+<p>General guidance only. Check the confirmed listing and sale terms for details about a specific auction.</p>
+<div class="faq-grid">
+<div class="faq-group"><h3>For buyers</h3>
+<details class="faq-item" name="buyer-faq"><summary>How do I take part in an auction?</summary><p>Each confirmed listing will explain how to participate. The bidding platform is still pending owner confirmation, so no platform is represented as confirmed here.</p></details>
+<details class="faq-item" name="buyer-faq"><summary>Where can I find dates, inspection details and auction terms?</summary><p>Review the information published with the confirmed listing. Inspection arrangements, dates and sale conditions can differ by auction and should be checked before bidding.</p></details>
+<details class="faq-item" name="buyer-faq"><summary>Are fees or deposits shown on this website?</summary><p>No fee or deposit amounts are published here. Refer to the terms for the specific auction before making a bid.</p></details>
+</div>
+<div class="faq-group"><h3>For sellers</h3>
+<details class="faq-item" name="seller-faq"><summary>What can Ndila help sell?</summary><p>The company profile describes fixed property and movable asset auctions, including vehicles, trucks, mining equipment and agricultural or farming-related assets. It also lists asset management and online auctions.</p></details>
+<details class="faq-item" name="seller-faq"><summary>Can I discuss a private treaty sale?</summary><p>The company profile describes both auction and private treaty as possible sale routes. Share the asset and your goals so the suitable approach can be discussed.</p></details>
+<details class="faq-item" name="seller-faq"><summary>Does the website promise a sale price or outcome?</summary><p>No. Any sale route and expected process should be discussed for the specific asset; the website does not promise a price or sale result.</p></details>
+</div></div>
+</div></section>
+
 <section id="contact"><div class="wrap two">
 <div><p class="eyebrow">Contact</p><h2>Tell us what you need</h2>
 <p>Use the form after the enquiry route and privacy wording are confirmed.</p>
 <p class="todo"><strong>Owner to confirm before launch:</strong> preferred public phone number, enquiry inbox, office address, privacy wording, bidding platform and auction terms. Conflicting contact details are intentionally not published as confirmed.</p></div>
-<form name="enquiry" id="enquiry-form" method="POST" action="https://formspree.io/f/YOUR_FORM_ID">
+<form name="enquiry" id="enquiry-form" method="POST" action="https://formspree.io/f/YOUR_FORM_ID" data-privacy-confirmed="false">
 <input type="hidden" name="_next" value="https://thato1943.github.io/ndila-website/thanks.html">
 <div class="row"><div><label for="n">Full name</label><input id="n" name="name" required autocomplete="name"></div><div><label for="t">Telephone</label><input id="t" name="phone" type="tel" autocomplete="tel"></div></div>
 <div class="row"><div><label for="e">Email</label><input id="e" name="email" type="email" required autocomplete="email"></div>
@@ -223,7 +299,7 @@ footer a{text-decoration:none}footer a:hover{color:var(--gold)}
 
 <footer><div class="wrap">
 <div><h2>NDILA AUCTIONEERS</h2><p>Auction and property trading · Nationwide service · Founded 2019<br>Majority Black female owned · South Africa</p></div>
-<div><h2>Contact</h2><p>Public contact details are pending owner confirmation.</p></div>
+<div><h2>Contact</h2><p>Public contact details are pending owner confirmation.</p><p><a href="#faq">Read buyer and seller FAQs</a></p></div>
 <div><h2>Explore</h2><p><a href="#auctions">Auctions</a> · <a href="#sell">Sell with us</a> · <a href="#services">Services</a> · <a href="#about">About</a> · <a href="#team">Our team</a></p></div>
 </div></footer>
 <div class="callbar"><a href="#auctions">Browse auctions</a><a href="#contact">Contact us</a></div>
@@ -238,25 +314,109 @@ const $=id=>document.getElementById(id), out=$("results");
 const fmt=d=>new Date(d).toLocaleString("en-ZA",{timeZone:"Africa/Johannesburg",dateStyle:"medium",timeStyle:"short"})+" SAST";
 const status=a=>{const n=Date.now();return n<+new Date(a.opens)?"Upcoming":n<=+new Date(a.closes)?"Live":"Closed"};
 function esc(s){return String(s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
+function imagePath(value){
+ const path=String(value||"").trim(), ext=path.slice(path.lastIndexOf(".")+1).toLowerCase();
+ if(!path.startsWith("images/")||path.includes("..")||path.includes(":")||path.includes("\\"))return "";
+ return ["jpg","jpeg","png","webp","avif"].includes(ext)?path:"";
+}
+function auctionHref(value){
+ const path=String(value||"").trim();
+ if(path.startsWith("https://")&&!path.includes("<")&&!path.includes(">")&&!path.includes('"'))return path;
+ if(path&&!path.startsWith("/")&&!path.toLowerCase().startsWith("javascript:")&&!path.includes("<")&&!path.includes(">")&&!path.includes('"'))return path;
+ return "#contact";
+}
+function countdown(a){
+ const state=status(a);
+ if(state==="Closed")return "Auction closed.";
+ const target=+(state==="Upcoming"?new Date(a.opens):new Date(a.closes));
+ let seconds=Math.max(0,Math.floor((target-Date.now())/1000));
+ const days=Math.floor(seconds/86400);seconds%=86400;
+ const hours=Math.floor(seconds/3600);seconds%=3600;
+ const minutes=Math.floor(seconds/60);seconds%=60;
+ const parts=[];
+ if(days)parts.push(days+"d");
+ parts.push(hours+"h",minutes+"m",seconds+"s");
+ return (state==="Upcoming"?"Opens in ":"Closes in ")+parts.join(" ");
+}
+function renderGallery(a){
+ const source=Array.isArray(a.images)?a.images:(a.image?[{src:a.image,alt:a.alt||""}]:[]);
+ const photos=source.map(p=>({src:imagePath(p&&p.src),alt:String(p&&p.alt||"")})).filter(p=>p.src);
+ if(!photos.length)return '<div class="ph listing-photo-placeholder" role="img" aria-label="Listing photo placeholder; approved photographs can be added to the gallery">Listing photo placeholder</div>';
+ const first=photos[0];
+ const thumbnails=photos.length>1?'<div class="gallery-thumbs" role="group" aria-label="Choose a listing photo">'+photos.map((p,i)=>'<button class="gallery-thumb" type="button" data-gallery-thumb data-src="'+esc(p.src)+'" data-alt="'+esc(p.alt)+'" aria-label="Show photo '+(i+1)+' of '+photos.length+' for '+esc(a.title)+'" aria-pressed="'+(i===0?'true':'false')+'"><img src="'+esc(p.src)+'" alt="" loading="lazy"></button>').join("")+'</div>':"";
+ return '<div class="gallery" role="group" aria-label="Listing photos for '+esc(a.title)+'"><div class="gallery-main"><img src="'+esc(first.src)+'" alt="'+esc(first.alt)+'" loading="lazy"></div>'+thumbnails+'</div>';
+}
 function render(){
  const q=$("q").value.toLowerCase(),c=$("fcat").value,p=$("fprov").value,s=$("fstat").value;
  let l=AUCTIONS.filter(a=>(!q||(a.title+a.location+a.category).toLowerCase().includes(q))&&(!c||a.category===c)&&(!p||a.province===p)&&(!s||status(a)===s));
  l.sort($("fsort").value==="new"?(a,b)=>new Date(b.added)-new Date(a.added):(a,b)=>new Date(a.closes)-new Date(b.closes));
- if(!l.length){out.innerHTML='<div class="empty"><div><h3>'+(AUCTIONS.length?'No auctions match these filters':'No auctions are listed right now')+'</h3><p>'+(AUCTIONS.length?'Clear a filter or search again.':'Contact details and enquiry handling are pending owner confirmation.</p></div><a class="btn" href="#contact">Ask about upcoming auctions</a></div>';return}
- out.innerHTML='<div class="cards">'+l.map(a=>'<article class="card">'+(a.image?'<img src="'+esc(a.image)+'" alt="'+esc(a.alt)+'" style="width:100%;aspect-ratio:3/2;object-fit:cover" loading="lazy">':'<div class="ph">Image pending</div>')+'<div class="in"><span class="badge">Status: '+status(a)+'</span><h3 style="margin-top:10px">'+esc(a.title)+'</h3><p>'+esc(a.category)+' · '+esc(a.location)+', '+esc(a.province)+'<br>Opens: '+fmt(a.opens)+'<br>Closes: '+fmt(a.closes)+'</p><a href="'+esc(a.url)+'">View auction details</a></div></article>').join("")+'</div>';
+ if(!l.length){
+  const filtered=AUCTIONS.length>0;
+  out.innerHTML='<div class="empty"><div><h3>'+(filtered?'No auctions match these filters':'No auctions are listed right now')+'</h3><p>'+(filtered?'Try another search or filter.':'Confirmed listings, dates and bidding details will appear here once approved.')+'</p></div><a class="btn" href="#faq">'+(filtered?'See buyer and seller FAQs':'Read buyer and seller FAQs')+'</a></div>';
+  return;
+ }
+ out.innerHTML='<div class="cards">'+l.map(a=>{
+  const index=AUCTIONS.indexOf(a),state=status(a),href=auctionHref(a.url);
+  return '<article class="card" data-auction-index="'+index+'">'+renderGallery(a)+'<div class="in"><span class="badge" data-auction-status data-state="'+state+'">Status: '+state+'</span><p class="countdown" data-countdown aria-live="off">'+countdown(a)+'</p><h3>'+esc(a.title)+'</h3><p>'+esc(a.category)+' · '+esc(a.location)+', '+esc(a.province)+'<br>Opens: '+fmt(a.opens)+'<br>Closes: '+fmt(a.closes)+'</p><a href="'+esc(href)+'">View details for '+esc(a.title)+'</a></div></article>';
+ }).join("")+'</div>';
 }
-["q","fcat","fprov","fstat","fsort"].forEach(i=>$(i).addEventListener("input",render));render();
-const enquiryForm=$("enquiry-form");
-enquiryForm.addEventListener("submit",event=>{
- if(enquiryForm.getAttribute("action").includes("YOUR_FORM_ID")){
-  event.preventDefault();
-  const message=$("form-response");
-  message.hidden=false;
-  message.textContent="This form is not connected yet. Complete the Formspree setup and confirm privacy wording before sending an enquiry.";
+function updateAuctionClocks(){
+ const cards=out.querySelectorAll("[data-auction-index]");
+ let changed=false;
+ cards.forEach(card=>{
+  const a=AUCTIONS[Number(card.dataset.auctionIndex)],badge=card.querySelector("[data-auction-status]");
+  if(a&&badge&&badge.dataset.state!==status(a))changed=true;
+ });
+ if(changed){render();return}
+ cards.forEach(card=>{
+  const a=AUCTIONS[Number(card.dataset.auctionIndex)],timer=card.querySelector("[data-countdown]");
+  if(a&&timer)timer.textContent=countdown(a);
+ });
+}
+["q","fcat","fprov","fstat","fsort"].forEach(i=>$(i).addEventListener("input",render));
+out.addEventListener("click",event=>{
+ const thumb=event.target instanceof Element?event.target.closest("[data-gallery-thumb]"):null;
+ if(!thumb)return;
+ const gallery=thumb.closest(".gallery"),main=gallery&&gallery.querySelector(".gallery-main img");
+ if(!main)return;
+ main.src=thumb.dataset.src;
+ main.alt=thumb.dataset.alt||"";
+ gallery.querySelectorAll("[data-gallery-thumb]").forEach(button=>button.setAttribute("aria-pressed",button===thumb?"true":"false"));
+});
+render();
+if(AUCTIONS.length)setInterval(updateAuctionClocks,1000);
+const enquiryForm=$("enquiry-form"),formStatus=$("form-response"),submitButton=enquiryForm.querySelector('button[type="submit"]');
+enquiryForm.addEventListener("submit",async event=>{
+ event.preventDefault();
+ const configured=!enquiryForm.getAttribute("action").includes("YOUR_FORM_ID");
+ const privacyConfirmed=enquiryForm.dataset.privacyConfirmed==="true";
+ if(!configured||!privacyConfirmed){
+  formStatus.hidden=false;
+  formStatus.textContent="This form is not active yet. Ndila must connect Formspree and approve the enquiry privacy wording before accepting enquiries.";
+  return;
+ }
+ submitButton.disabled=true;
+ formStatus.hidden=false;
+ formStatus.textContent="Sending your enquiry…";
+ try{
+  const response=await fetch(enquiryForm.action,{method:"POST",body:new FormData(enquiryForm),headers:{"Accept":"application/json"}});
+  if(!response.ok)throw new Error("The form service did not accept the enquiry.");
+  window.location.assign(new URL("./thanks.html",window.location.href).href);
+ }catch(error){
+  formStatus.textContent="We could not send the enquiry just now. Please try again later.";
+  submitButton.disabled=false;
  }
 });
 const mb=$("menuBtn"),nv=$("nav");mb.onclick=()=>{const o=nv.classList.toggle("open");mb.setAttribute("aria-expanded",o)};
 nv.querySelectorAll("a").forEach(a=>a.onclick=()=>{nv.classList.remove("open");mb.setAttribute("aria-expanded","false")});
+if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches&&"IntersectionObserver" in window){
+ const targets=document.querySelectorAll("section:not(.hero),.svc article,.team article,.case aside,.map-figure,.faq-item");
+ targets.forEach(el=>el.classList.add("reveal"));
+ const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{
+  if(entry.isIntersecting){entry.target.classList.add("is-visible");observer.unobserve(entry.target);}
+ }),{threshold:0.12});
+ targets.forEach(el=>observer.observe(el));
+}
 </script>
 </body>
 </html>

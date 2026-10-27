@@ -23,6 +23,7 @@ Because this repository is public, put only material approved for public viewing
 - Page text and sections are in `index.html`. Keep the existing owner-confirmation notes until the company confirms those items.
 - Proposed colours are near the top of `index.html`, in the `:root` block: deep slate-green `#17332e`, muted gold `#b8924a`, and off-white backgrounds. They remain proposed until Ndila confirms the brand colours.
 - Leave the page's JavaScript and the closing `</script>` tag in place when editing ordinary text.
+- The hero panel is the `<figure class="frame hero-support">` section in `index.html`. Its gold gavel is a custom vector illustration rather than a photograph. To use an approved company photo, upload it to `images/` and ask for help updating the panel so the image description and mobile layout stay correct.
 
 ### Auctions
 

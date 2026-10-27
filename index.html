@@ -39,14 +39,19 @@ nav a{text-decoration:none;padding:8px 0}nav a:hover{color:var(--gold)}
 .hero p.lead{max-width:34em;color:#dbe5e2}
 .hero .small{font-size:.85rem;color:#b9c8c4;margin-top:22px}
 .hero .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
-.frame{position:relative;isolation:isolate;overflow:hidden;border:1px solid var(--gold);border-radius:10px;padding:16px;background:linear-gradient(135deg,#2a4f47,#12261f)}
-.frame::before{content:"";position:absolute;z-index:-1;inset:4%;background:url("images/ndila-dot-pattern.png") center/contain no-repeat;opacity:.16;pointer-events:none}
-.ph{background:linear-gradient(135deg,#2a4f47,#12261f);display:grid;place-items:center;text-align:center;color:#c9d6d2;font-size:.82rem;padding:16px;border-radius:6px}
-.frame .ph{aspect-ratio:16/9;font-size:3rem;color:var(--gold);background:transparent}
-.hero-gavel{display:block;width:clamp(64px,9vw,98px);height:auto;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-.steps4{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid #b8924a88;margin-top:14px;font-size:.85rem}
-.steps4 span{padding:10px 12px;border-left:1px solid #b8924a88}.steps4 span:first-child{border-left:0}
-@media(max-width:860px){.hero .grid{grid-template-columns:1fr}.steps4{grid-template-columns:1fr 1fr}}
+.frame{position:relative;isolation:isolate;overflow:hidden;border:1px solid var(--gold);border-radius:12px;padding:14px;background:linear-gradient(135deg,#2a4f47,#12261f)}
+.frame::before{content:"";position:absolute;z-index:-1;inset:4%;background:url("images/ndila-dot-pattern.png") center/contain no-repeat;opacity:.12;pointer-events:none}
+.hero-art{overflow:hidden;aspect-ratio:2.45/1;min-height:132px;border-radius:7px;background:#172d28}
+.hero-art svg{display:block;width:100%;height:100%}
+.hero-caption{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 2px 8px;color:#dbe5e2;font-size:.72rem;line-height:1.3}
+.hero-caption strong{color:var(--gold);font-size:.64rem;letter-spacing:.07em}
+.steps4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));list-style:none;margin:0;padding:0;border:1px solid #b8924a88;font-size:.82rem}
+.steps4 li{min-width:0;display:flex;flex-direction:column;gap:4px;padding:9px 10px;border-left:1px solid #b8924a88}
+.steps4 li:first-child{border-left:0}
+.step-num{color:var(--gold);font-size:.62rem;font-weight:600}
+.step-label{color:#fff;line-height:1.25}
+@media(max-width:860px){.hero .grid{grid-template-columns:1fr}}
+@media(max-width:520px){.frame{padding:10px}.hero-art{min-height:112px}.hero-caption{font-size:.62rem}.hero-caption strong{font-size:.57rem}.steps4 li{padding:8px 6px}.step-label{font-size:.69rem}}@media(max-width:860px){.hero .grid{grid-template-columns:1fr}.steps4{grid-template-columns:1fr 1fr}}
 .trust{border-bottom:1px solid var(--line);padding:0}
 .trust .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
 .trust div{padding:22px 20px;border-left:1px solid var(--line)}.trust div:first-child{border-left:0;padding-left:0}
@@ -161,9 +166,48 @@ footer a{text-decoration:none}footer a:hover{color:var(--gold)}
 <div class="actions"><a class="btn" href="#auctions">Browse auctions</a><a class="btn ghost" href="#sell">Sell with us</a></div>
 <p class="small">Public contact details are pending owner confirmation.</p>
 </div>
-<div class="frame">
-<div class="ph" role="img" aria-label="Auction gavel illustration"><svg class="hero-gavel" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path d="m15 13 8-8 20 20-8 8zM29 27l8-8M5 59l24-24M27 37l10 10M38 47l10 10M36 48l8-8M13 59h46"></path></svg></div>
-<div class="steps4" aria-label="Hands-on auction support"><span>Prepare</span><span>Promote</span><span>Conduct</span><span>Follow up</span></div>
+<figure class="frame hero-support">
+<div class="hero-art">
+<svg viewBox="0 0 640 250" role="img" aria-labelledby="hero-gavel-title hero-gavel-desc" xmlns="http://www.w3.org/2000/svg">
+<title id="hero-gavel-title">Gold auction gavel illustration</title>
+<desc id="hero-gavel-desc">A gold auction gavel rests above its sound block on a deep green background.</desc>
+<defs>
+<linearGradient id="hero-bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#18362f"/><stop offset=".55" stop-color="#30433a"/><stop offset="1" stop-color="#111f1c"/></linearGradient>
+<radialGradient id="hero-glow"><stop stop-color="#b8924a" stop-opacity=".36"/><stop offset="1" stop-color="#b8924a" stop-opacity="0"/></radialGradient>
+<linearGradient id="hero-gold" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#6f4a18"/><stop offset=".2" stop-color="#c99b48"/><stop offset=".42" stop-color="#f1d78d"/><stop offset=".64" stop-color="#a9792c"/><stop offset=".82" stop-color="#e6c36c"/><stop offset="1" stop-color="#76501e"/></linearGradient>
+<linearGradient id="hero-wood" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#684523"/><stop offset=".42" stop-color="#35261b"/><stop offset="1" stop-color="#201d18"/></linearGradient>
+<filter id="hero-shadow" x="-30%" y="-30%" width="160%" height="180%"><feGaussianBlur in="SourceAlpha" stdDeviation="7"/><feOffset dy="7"/><feComponentTransfer><feFuncA type="linear" slope=".4"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<rect width="640" height="250" fill="url(#hero-bg)"/>
+<ellipse cx="430" cy="96" rx="205" ry="112" fill="url(#hero-glow)"/>
+<path d="M0 190c130-14 242-12 345 1 110 14 200 12 295-3v62H0z" fill="#10201c" opacity=".5"/>
+<ellipse cx="425" cy="218" rx="165" ry="15" fill="#070e0c" opacity=".48"/>
+<g filter="url(#hero-shadow)">
+<path d="M337 171h176v36H337z" fill="url(#hero-wood)"/>
+<ellipse cx="425" cy="171" rx="88" ry="18" fill="#754f24"/>
+<ellipse cx="425" cy="169" rx="79" ry="12" fill="url(#hero-gold)" opacity=".78"/>
+<path d="M337 207h176l-18 17H355z" fill="#171c18"/>
+<path d="M352 178h146" stroke="#e4c374" stroke-opacity=".5" stroke-width="2"/>
+</g>
+<g filter="url(#hero-shadow)">
+<path d="M93 118c76-3 173-4 286-9" fill="none" stroke="#5c3e1b" stroke-width="22" stroke-linecap="round"/>
+<path d="M93 114c76-3 173-4 286-9" fill="none" stroke="url(#hero-gold)" stroke-width="16" stroke-linecap="round"/>
+<path d="M118 109c72-2 145-3 211-5" fill="none" stroke="#fff0bd" stroke-opacity=".54" stroke-width="3" stroke-linecap="round"/>
+<ellipse cx="95" cy="115" rx="10" ry="12" fill="url(#hero-gold)"/>
+<g transform="rotate(-31 388 109)">
+<path d="M359 64c0-11 9-20 20-20h18c11 0 20 9 20 20v88c0 11-9 20-20 20h-18c-11 0-20-9-20-20z" fill="url(#hero-gold)" stroke="#684719" stroke-width="3"/>
+<ellipse cx="388" cy="64" rx="29" ry="11" fill="#e7c46f" stroke="#7a5721" stroke-width="3"/>
+<path d="M363 75h50M363 145h50" stroke="#f4df9d" stroke-opacity=".8" stroke-width="4"/>
+<ellipse cx="388" cy="152" rx="29" ry="11" fill="#9b702d" stroke="#684719" stroke-width="3"/>
+<path d="M379 48c5-3 12-3 18 0" fill="none" stroke="#fff0bc" stroke-width="3" stroke-linecap="round"/>
+</g>
+</g>
+<path d="M58 236h524" stroke="#b8924a" stroke-opacity=".38"/>
+</svg>
+</div>
+<figcaption class="hero-caption"><strong>HANDS-ON AUCTION SUPPORT</strong><span>Preparation to follow-up</span></figcaption>
+<ol class="steps4" aria-label="Four stages of auction support"><li><span class="step-num">01</span><span class="step-label">Prepare</span></li><li><span class="step-num">02</span><span class="step-label">Promote</span></li><li><span class="step-num">03</span><span class="step-label">Conduct</span></li><li><span class="step-num">04</span><span class="step-label">Follow up</span></li></ol>
+</figure>
 </div></div></section>
 
 <section class="trust" aria-label="Company facts"><div class="wrap">
